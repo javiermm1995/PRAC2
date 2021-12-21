@@ -1,0 +1,123 @@
+---
+title: "PRAC2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+rm(list=ls())
+```
+
+## Carga de los datos
+
+Se carga el origen de datos y se asigna el tipo de dato correcto
+
+```{r cars}
+data <- read_csv("C:/Users/jmateomor/Desktop/Master/Tipología y ciclo de vida de los datos/PRAC2/train.csv")
+
+data$Survived = as.factor(data$Survived)
+data$Pclass = as.factor(data$Pclass)
+data$Sex = as.factor(data$Sex)
+data$Embarked = as.factor(data$Embarked)
+
+summary(data)
+
+```
+
+## Apartado 1. Descripción del dataset
+
+Se analiza cada variable una a una.
+
+# PassengerID
+
+Identificador del número de pasajero. Esta variable no es de interés analítico.
+
+# Survived
+
+Esta variable no tiene valores nulos. Los resultados se codifican como 0 = No sobrevive y 1 = Sobrevive.
+El 38% de los pasajeros de este dataset sobreviven. Esta variable será una variable muy relevante en este análisis ya que el objetivo de esta práctica está en identificar el perfil de los supervivientes.
+
+```{r pressure, echo=FALSE}
+summary(data$Survived)
+
+#data %>% ggplot(aes(x=Survived, fill=Survived)) + geom_bar()
+```
+
+# Pclass
+
+La variable Pclass indica la clase del pasajero. Los valores de esta variable son 1, 2 y 3 y corresponden a la primera, segunda y tercera clase. En esta variable no se encuentran valores nulos.
+
+```{r pressure, echo=FALSE}
+summary(data$Pclass)
+data %>% ggplot(aes(x=Pclass, fill=Survived)) + geom_bar()
+
+```
+
+# Name
+
+Esta variable es de tipo string e indica el nombre del pasajero. Al ser un identificador único de cada pasajero no es de utilidad para este proyecto.
+
+# Sex
+
+Indica el sexo del pasajero. En esta variable no se encuentran nulos
+
+```{r pressure, echo=FALSE}
+summary(data$Sex)
+data %>% ggplot(aes(x=Sex, fill=Survived)) + geom_bar()
+
+```
+# Age
+
+La variable Age indica la edad del pasajero. En esta variable se encuentran 177 valores nulos.
+La media y la mediana tienen valores bastante similares de 28 y 29,7 respectivamente.
+
+
+```{r pressure, echo=FALSE}
+summary(data$Age)
+data %>% ggplot(aes(x=Age, fill=Survived)) + geom_histogram()
+
+```
+
+# sibsp
+
+Indica el número de hermanos y/o esposa a bordo del barco. Esta distribución tiene un máximo en el 0 y la mayor parte de los valores son inferiores a 2. Esta variable no tiene valores nulos
+
+```{r pressure, echo=FALSE}
+summary(data$SibSp)
+data %>% ggplot(aes(x=SibSp, fill=Survived)) + geom_bar()
+
+```
+
+# Parch
+
+
+
+```{r pressure, echo=FALSE}
+summary(data$Parch)
+data %>% ggplot(aes(x=Parch, fill=Survived)) + geom_bar()
+```
+# ticket
+
+Esta variable es un identificador del número de billete. No es de interés en esta práctica
+
+#  fare
+
+```{r pressure, echo=FALSE}
+summary(data$Fare)
+data %>% ggplot(aes(x=Fare, fill=Survived)) + geom_histogram()
+```
+
+# cabin
+
+Esta variable indica el número de las cabinas utilizadas por el pasajero.
+
+
+# embarked
+
+Indica el puerto de embarque siendo C = Cherbourg, Q = Queenstown y S = Southampton
+
+
+```{r pressure, echo=FALSE}
+summary(data$Embarked)
+data %>% ggplot(aes(x=Embarked, fill=Survived)) + geom_bar()
+```
