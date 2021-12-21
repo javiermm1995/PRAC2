@@ -1,2 +1,11 @@
 # PRAC2
-Repositorio de la Práctica 2 de la asignatura Tipología y ciclo de vida de los datos de la UOC
+
+Práctica 2 del máster de Ciencia de Datos de la UOC. Asignatura Tipología y ciclo de vida de los datos
+
+Por Sara García Rodríguez y Javier Mateo Moreno.
+
+
+En este repositorio se agrupan los siguientes ficheros:
+
+LICENSE - donde fijamos la licencia del proyecto
+README - descripción del proyecto
