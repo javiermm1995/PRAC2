@@ -7,5 +7,6 @@ Por Sara García Rodríguez y Javier Mateo Moreno.
 
 En este repositorio se agrupan los siguientes ficheros:
 
-LICENSE - donde fijamos la licencia del proyecto
-README - descripción del proyecto
+- LICENSE - donde fijamos la licencia del proyecto
+- README - descripción del proyecto
+- 
