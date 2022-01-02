@@ -75,7 +75,7 @@ typeof(df$Age)
 
 # Búsqueda de valores atípicos
 
-Valores atípicos en número de familiares embarcados
+## Valores atípicos en número de familiares embarcados
 
 ```{r, echo=FALSE}
 # Pasamos ahora a identificar outliers haciendo uso de boxplot
@@ -89,13 +89,17 @@ Con estas dos variables se identifican ciertos registros como outliers que no so
 
 
 
-Valores atípicos en la variable Fare
+## Valores atípicos en la variable Fare
+
+Se visualiza el boxplot de la variable Fare.
 
 ```{r, echo=FALSE}
 
 boxplot(df$Fare)
 
 ```
+En este caso se identifican muchos valores anómalos, pero el único que es en realidad un outlier es el mayor (con valor 512.33). Existen tres tipos de billetes -clase 1, 2 o 3- y, en función de la clase, el precio es mayor o menor generalmente. Como no hay la misma cantidad de billetes de cada una de las tres clases, se identifican como valores anómalos precios más elevados que, aunque destaquen en comparación con los más bajos, son razonables para el precio de billetes de primera clase. Se elimina este registro por ser un valor atípico y visualizamos el boxplot resultante tras eliminarlo.
+
 ```{r, echo=FALSE}
 # Para tratar el outlier directamente lo eliminamos del total del registro:
 df2 <- subset(df, Fare!=512.3292)
@@ -108,17 +112,16 @@ df2$Fare <- round(df2$Fare, 2)
 ```
 
 
-En este caso se identifican muchos valores anómalos, pero el único que es en realidad un outlier es el mayor (con valor 512.33). Existen tres tipos de billetes -clase 1, 2 o 3- y, en función de la clase, el precio es mayor o menor generalmente. Como no hay la misma cantidad de billetes de cada una de las tres clases, se identifican como valores anómalos precios más elevados que, aunque destaquen en comparación con los más bajos, son razonables para el precio de billetes de primera clase. 
-
-
 # Factorización
 
-Factorización de la variable sex
+Inicialmente se busca el número de valores únicos que existen en cada variable.
 
 ```{r}
 # Primero, comprobamos qué variables son las que debemos binarizar
 apply(df2, 2, function(x) length(unique(x)))
 ```
+Se transforma la variable sex
+
 ```{r}
 # Y binarizamos la variable 'sex', para registrarla en vez de como 'male' y 'female', como (0,1)
 
