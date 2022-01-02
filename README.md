@@ -11,3 +11,4 @@ En este repositorio se agrupan los siguientes ficheros:
 - README - descripción del proyecto
 - Data Original - Base de datos original 
 - Data Final.csv - Base de datos final, tras el proceso de limpieza
+- Codigo.Rmd - Código de R Markdown con el análisis realizado
